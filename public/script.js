@@ -7,6 +7,9 @@ const inputCity = document.querySelector('.inputCity')
 const inputSurname = document.querySelector('.inputSurname')
 const searchButton = document.querySelector('.searchButton')
 
+
+
+
 const getDataFunction = async url => {
   const getData = async url => {
     const res = await fetch(url)

@@ -3,9 +3,10 @@ const path = require('path')
 const morgan = require('morgan')
 const fs = require('fs')
 const cors = require('cors')
+require('dotenv').config()
+const PORT = process.env.PORT
+const clientUrl = process.env.clientUrl
 
-
-const PORT = 3000
 const app = express()
 
 const getPath = filename => path.join(__dirname, 'public', `${filename}.html`)
@@ -16,10 +17,11 @@ app.use(morgan(':method :url :status'))
 
 app.use(express.json())
 
+
 app.use(
   cors({
-    methods: ['GET', 'POST']
-
+    methods: ['GET', 'POST'],
+    origin: [clientUrl]
   })
 )
 
